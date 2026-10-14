@@ -32,4 +32,27 @@ public class SudokuSolver {
         }
     return true;
     }
+
+    public boolean solve(){
+        for (int row=0; row<9; row++){
+            for (int col=0; col<9; col++){
+                //check for the cells that got 0 value
+                if (board[row][col].getValue()==0){
+                    //number to add in the cell
+                    for (int number=1; number<=9; number++){
+                        //check if the number valid to add there
+                        if (isValid(row,col,number)){
+                            //then set the value(number) in the row
+                            board[row][col].setValue(number);
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+
+
+
 }
