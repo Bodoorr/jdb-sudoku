@@ -105,12 +105,26 @@ public class Sudoku {
     public static void main(String[] args) {
         Sudoku sudoku=new Sudoku();
     try {
+        System.out.println("Puzzle 1");
         sudoku.load("src/main/resources/puzzle1.txt");
         sudoku.print();
+        System.out.println("\nPuzzle 2");
+        sudoku.load("src/main/resources/puzzle2.txt");
+        sudoku.print();
+        System.out.println("\nPuzzle 3");
+        sudoku.load("src/main/resources/puzzle3.txt");
+        sudoku.print();
+        System.out.println("\nPuzzle 4");
+        sudoku.load("src/main/resources/puzzle4.txt");
+        sudoku.print();
+
+
     } catch (InvalidCharacterException | SudokuFileNotFoundException | IOException e){
         System.out.println(e.getMessage());
     }
     }
 
-
+    public SudokuCell[][] getBoard() {
+        return board;
+    }
 }
