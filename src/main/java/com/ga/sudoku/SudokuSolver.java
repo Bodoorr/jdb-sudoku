@@ -44,8 +44,13 @@ public class SudokuSolver {
                         if (isValid(row,col,number)){
                             //then set the value(number) in the row
                             board[row][col].setValue(number);
+                            if (solve()){
+                                return true;
+                            }
+                            board[row][col].setValue(0);
                         }
                     }
+                    return false;
                 }
             }
         }
