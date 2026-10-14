@@ -15,11 +15,22 @@ public class Sudoku {
 
     public void print(){
         for (int row=0; row<board.length; row++){
+            if (row%3==0 && row>0){
+                System.out.println("---------------------");
+            }
             for (int col=0; col<board[row].length; col++){
+                if (col%3==0 && col>0){
+                    System.out.print("| ");
+                }
                 System.out.print(board[row][col].getValue()+" ");
             }
             System.out.println();
         }
+    }
+
+    public static void main(String[] args) {
+        Sudoku sudoku=new Sudoku();
+        sudoku.print();
     }
 
 
