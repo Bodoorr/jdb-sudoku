@@ -119,4 +119,21 @@ public class Sudoku {
         return result.toString();
     }
 
+
+    public boolean placeNumber(int row, int col, int number){
+        if (row<0 || row>=9 || col<0 || col>=9){
+            return false;
+        }
+        if (number<1 || number>9){
+            return false;
+        }
+
+        if (board[row][col].isFixed()){
+            return false;
+        }
+
+        board[row][col].setValue(number);
+        return true;
+    }
+
 }
