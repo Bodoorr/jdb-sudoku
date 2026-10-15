@@ -57,36 +57,6 @@ public class Sudoku {
         }
     }
 
-//    public void load(String filePath) throws IOException, InvalidCharacterException, SudokuFileNotFoundException {
-//        List<String> lines=new ArrayList<>();
-//        try {
-//            lines = FileManager.readAllLines(filePath);
-//        } catch (FileNotFoundException e) {
-//            throw new SudokuFileNotFoundException("File not found.");
-//        }
-//
-//        if (lines.size() !=9){
-//            throw new InvalidCharacterException("Puzzle must have 9 rows.");
-//        }
-//
-//        for (int row=0; row<9; row++){
-//            String[] characters= lines.get(row).split("");
-//
-//            if (characters.length !=9){
-//                throw new InvalidCharacterException("Invalid number of columns.");
-//            }
-//
-//            for (int col=0; col<9; col++){
-//                if (!characters[col].matches("[0-9]]")){
-//                    throw new InvalidCharacterException("Invalid input: "+characters[col]);
-//                }
-//
-//                int value= Integer.parseInt(characters[col]);
-//                board[row][col]= new SudokuCell(value,value!=0);
-//            }
-//        }
-//    }
-
 
     public void print() {
         for (int row = 0; row < board.length; row++) {

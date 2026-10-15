@@ -9,16 +9,14 @@ public class SudokuSolver {
 
     public boolean isValid(int row, int col, int character){
     for (int i=0; i<9; i++){
-        //check the row if it got the same value as character
         if (board[row][i].getValue() == character){
             return false;
         }
-        //check the column if it got the same value as character
+
         if (board[i][col].getValue()== character){
             return false;
         }
     }
-        //check 3x3 box
         int startRow= row - (row % 3);
         int startCol= col - (col % 3);
         // 4 - (4 % 3) = 3
@@ -36,13 +34,10 @@ public class SudokuSolver {
     public boolean solve(){
         for (int row=0; row<9; row++){
             for (int col=0; col<9; col++){
-                //check for the cells that got 0 value
                 if (board[row][col].getValue()==0){
-                    //number to add in the cell
                     for (int number=1; number<=9; number++){
-                        //check if the number valid to add there
+
                         if (isValid(row,col,number)){
-                            //then set the value(number) in the row
                             board[row][col].setValue(number);
                             if (solve()){
                                 return true;
@@ -57,7 +52,21 @@ public class SudokuSolver {
         return true;
     }
 
+    public boolean isConflict(int row, int col, int number){
+        return !isValid(row, col, number);
+    }
 
+    public boolean isSolved(){
+        for (int row=0; row<9; row++){
+            for (int col=0; col<9; col++){
+                int value= board[row][col].getValue();
 
+                if (value==0 || !isValid(row,col,value)){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
 }
